@@ -31,7 +31,7 @@ import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
             if (user.error)
                 this.props.setError(user)
             else {
-                this.props.history.push("/")
+                 this.props.history.push("/profile")
                 this.props.setUser(user)}
         })
     }        
