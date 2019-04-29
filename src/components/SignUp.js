@@ -31,7 +31,7 @@ class SignUp extends React.Component {
       body: JSON.stringify(this.state)
     }).then(res => res.json())
    .then(user =>{ 
-     this.props.history.push("/profile")
+     this.props.history.push("/login")
      this.props.setUser(user)
     })
     event.target.reset()

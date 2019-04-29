@@ -7,34 +7,58 @@ import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 
  class LogIn extends React.Component {
 
-    constructor(props) {
-        super(props)
 
-        this.state = {
-            name: "",
-            password: ""
-        }
-    }
+  state = {
+    name: "",
+    password: ""
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    fetch(`http://localhost:3000/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.state)
+    }).then(res => res.json())
+    .then(payload => {
+      localStorage.setItem("token", payload.token)
+      localStorage.setItem("name", payload.name)
+      this.props.updateUser(payload.name)
+      this.props.history.push("/profile")
+    })
+  }
+
+    // constructor(props) {
+    //     super(props)
+
+    //     this.state = {
+    //         name: "",
+    //         password: ""
+    //     }
+    // }
     
-    handleSubmit=(event) => {
-        event.preventDefault()
-        fetch("http://localhost:3000/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(this.state)
-        })
-        .then(res => {
-            return res.json()})
-        .then( user => {
-            if (user.error)
-                this.props.setError(user)
-            else {
-                 this.props.history.push("/profile")
-                this.props.setUser(user)}
-        })
-    }        
+    // handleSubmit=(event) => {
+    //     event.preventDefault()
+    //     fetch("http://localhost:3000/login", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(this.state)
+    //     })
+    //     .then(res => {
+    //         return res.json()})
+    //     .then( user => {
+    //         if (user.error)
+    //             this.props.setError(user)
+    //         else {
+    //           this.props.setUser(user)
+    //              this.props.history.push("/profile")
+    //             }
+    //     })
+    // }        
 
      
 

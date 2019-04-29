@@ -4,28 +4,25 @@ export default class ProfileContainer extends Component {
 
 
 
-    // componentDidMount(){
-    //     fetch(`http://localhost:3000/users${this.props.id}`,{
-    //       method: "GET",
-    //       headers: {"Content-Type": "application/json"},
-    //     //   body: JSON.stringify({token: token})
-    //     })
-    //     .then(res=>{
-    //       if(res.ok){
-    //         return res.json()
-    //       }
-    //     })
-    //     .then(data=>console.log(data))
+    componentDidMount(){
+        fetch(`http://localhost:3000/profile`,{
+          method: "GET",
+          headers: {"Content-Type": "application/json",'Authorization': 'Bearer ' + localStorage.getItem('token') },
+        })
+        .then(res=>{
+          if(res.ok){
+            return res.json()
+          }
+        })
+        .then(data=>console.log(data))
         
-    //   }
+      }
 
     render() {
-        const { user } = this.props
-        console.log("this is the user", user)
+        // console.log("this is the user", user)
         return (
             <div>
-                hello
-            {user === null || user === {} ? "Yikes" : user}
+                Hello {this.data}
             </div>
         )
     }
