@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class NewTrip extends React.Component {
   state = {
@@ -22,6 +23,7 @@ class NewTrip extends React.Component {
       body: JSON.stringify(this.state)
     }).then(res => res.json())
     .then(trip => this.props.addTrip(trip))
+    this.props.history.push("/profile")
   }
 
   render = () =>
@@ -61,4 +63,6 @@ class NewTrip extends React.Component {
     </form>
 }
 
-export default NewTrip;
+const NewTripWithRouter = withRouter(NewTrip)
+
+export default NewTripWithRouter;

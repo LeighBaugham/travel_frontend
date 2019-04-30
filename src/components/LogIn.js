@@ -34,38 +34,7 @@ import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
       this.props.history.push("/profile")}
     })
   }
-
-    // constructor(props) {
-    //     super(props)
-
-    //     this.state = {
-    //         name: "",
-    //         password: ""
-    //     }
-    // }
-    
-    // handleSubmit=(event) => {
-    //     event.preventDefault()
-    //     fetch("http://localhost:3000/login", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(this.state)
-    //     })
-    //     .then(res => {
-    //         return res.json()})
-    //     .then( user => {
-    //         if (user.error)
-    //             this.props.setError(user)
-    //         else {
-    //           this.props.setUser(user)
-    //              this.props.history.push("/profile")
-    //             }
-    //     })
-    // }        
-
-     
+        
 
      render = () => {
 

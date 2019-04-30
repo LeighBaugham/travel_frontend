@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import LoggedInHeader from './LoggedInHeader'
 import { Grid, Button } from 'semantic-ui-react'
+import TripsView from './TripsView'
 
 export default class ProfileContainer extends Component {
 
@@ -31,7 +32,7 @@ export default class ProfileContainer extends Component {
         return (
             <div>
                 < LoggedInHeader logout={this.props.logout}/>
-                <Grid celled='internally'>
+                <Grid celled='vertically'>
                   <Grid.Row>
                   <Grid.Column width={3}>
                   <img className="avatar" id="img" src={this.state.profile.image_url} alt="YOU"/> 
@@ -49,14 +50,18 @@ export default class ProfileContainer extends Component {
                       <Grid.Row>
                         {this.state.profile.location}
                       </Grid.Row>
-                      <Grid.Row>
+                      {/* <Grid.Row>
                         <Button content='Delete User' />
-                      </Grid.Row>
+                      </Grid.Row> */}
                   </Grid.Column>
                   <Grid.Column width={3}>                  
-                   <p> <Button size='large' color='violet'icon='play' href='/newtrip' content='Add Trip' /></p>
+                   <p> <Button size='large' color='violet'icon='plus' href='/newtrip' content='Trip' /></p>
                     
                   </Grid.Column>
+                  </Grid.Row>
+
+                  <Grid.Row>
+                    <TripsView />
                   </Grid.Row>
                 </Grid>
             </div>
