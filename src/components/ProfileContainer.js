@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import LoggedInHeader from './LoggedInHeader'
 
 export default class ProfileContainer extends Component {
 
@@ -27,6 +28,7 @@ export default class ProfileContainer extends Component {
     render() {
         return (
             <div>
+                < LoggedInHeader logout={this.props.logout}/>
                 <p>{this.state.profile.name}</p>
                 <p>{this.state.profile.image_url}</p>
             </div>
