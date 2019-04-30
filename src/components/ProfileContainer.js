@@ -2,7 +2,13 @@ import React, { Component } from 'react'
 
 export default class ProfileContainer extends Component {
 
+        constructor(props) {
+            super(props);
 
+            this.state = {
+                profile: []
+            }
+        }
 
     componentDidMount(){
         fetch(`http://localhost:3000/profile`,{
@@ -13,16 +19,16 @@ export default class ProfileContainer extends Component {
           if(res.ok){
             return res.json()
           }
-        })
-        .then(data=>console.log(data))
+        }).then(data => this.setState({profile: data}))
+        
         
       }
 
     render() {
-        // console.log("this is the user", user)
         return (
             <div>
-                Hello {this.data}
+                <p>{this.state.profile.name}</p>
+                <p>{this.state.profile.image_url}</p>
             </div>
         )
     }
