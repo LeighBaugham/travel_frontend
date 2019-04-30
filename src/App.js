@@ -59,7 +59,7 @@ class App extends Component {
 
       <Switch>
       <Route exact path="/" component={Homepage}/>
-      <Route exact path="/signup" render={()=><SignUp user={this.state.user}/> }/>
+      <Route exact path="/signup" render={()=><SignUp user={this.state.user} updateUser={this.updateUser}/> }/>
       <Route exact path="/login" render={()=><LogIn updateUser={this.updateUser} setError={this.setError} errors={this.state.errors}/> }/>
 
       <Route exact path="/profile" render={ () => this.state.user === null ? < Homepage /> : <ProfileContainer user={this.state.user} updateUser={this.updateUser} logout={this.logout} />}/>

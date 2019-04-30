@@ -32,7 +32,7 @@ class SignUp extends React.Component {
     }).then(res => res.json())
    .then(user =>{ 
      this.props.history.push("/login")
-     this.props.setUser(user)
+     this.props.updateUser(user)
     })
     event.target.reset()
   }
