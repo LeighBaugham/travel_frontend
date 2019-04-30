@@ -34,7 +34,7 @@ export default class ProfileContainer extends Component {
                 <Grid celled='internally'>
                   <Grid.Row>
                   <Grid.Column width={3}>
-                     {this.state.profile.image_url} 
+                  <img className="avatar" id="img" src={this.state.profile.image_url} alt="YOU"/> 
                   </Grid.Column>
                   <Grid.Column width={10}>
                       <Grid.Row>
@@ -49,10 +49,13 @@ export default class ProfileContainer extends Component {
                       <Grid.Row>
                         {this.state.profile.location}
                       </Grid.Row>
+                      <Grid.Row>
+                        <Button content='Delete User' />
+                      </Grid.Row>
                   </Grid.Column>
                   <Grid.Column width={3}>                  
-                   <p> <Button size='large' color='violet'icon='play' content='Add Trip' /></p>
-                    <Button content='Delete User' />
+                   <p> <Button size='large' color='violet'icon='play' href='/newtrip' content='Add Trip' /></p>
+                    
                   </Grid.Column>
                   </Grid.Row>
                 </Grid>

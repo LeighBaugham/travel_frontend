@@ -10,7 +10,8 @@ import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 
   state = {
     name: "",
-    password: ""
+    password: "",
+    id: null
   }
 
   handleSubmit = (event) => {
@@ -23,10 +24,14 @@ import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
       body: JSON.stringify(this.state)
     }).then(res => res.json())
     .then(payload => {
+      if (payload.error)
+        this.props.setError(payload)
+      else {
       localStorage.setItem("token", payload.token)
       localStorage.setItem("name", payload.name)
-      this.props.updateUser(payload.name)
-      this.props.history.push("/profile")
+      localStorage.setItem("user_id", payload.user_id)
+      this.props.updateUser(payload)
+      this.props.history.push("/profile")}
     })
   }
 
