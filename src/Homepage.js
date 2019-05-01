@@ -50,7 +50,7 @@ const HomepageHeading = ({ mobile }) => (
         marginTop: mobile ? '0.5em' : '1.5em',
       }}
     />
-    <Button primary size='huge' href='/signup'>
+    <Button primary size='huge' href='/login'>
       Get Started
       <Icon name='right arrow' />
     </Button>
@@ -101,10 +101,10 @@ class DesktopContainer extends Component {
                 <Menu.Item as='a'>Company</Menu.Item>
                 <Menu.Item as='a'>Careers</Menu.Item> */}
                 <Menu.Item position='right'>
-                
+{/*                 
                 <a href='/login'> Log In</a>
                 
-                  <a href='/signup'>Sign Up</a>
+                  <a href='/signup'>Sign Up</a> */}
                 </Menu.Item>
               </Container>
             </Menu>

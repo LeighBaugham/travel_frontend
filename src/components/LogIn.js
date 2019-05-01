@@ -59,7 +59,7 @@ import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
        <Grid.Column style={{ maxWidth: 450 }}>
          <Header as='h2' color='blue' textAlign='center'>
          
-            Log-in to your account
+             
          </Header>
          <p> {this.state.errors ? this.state.errors : null} </p>
          <Form size='large' onSubmit={this.handleSubmit}>

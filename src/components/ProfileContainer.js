@@ -60,7 +60,7 @@ export default class ProfileContainer extends Component {
                   </Grid.Row>
 
                   <Grid.Row>
-                    <TripsView trips={this.props.trips}/>
+                    <TripsView trips={this.props.trips} user={this.state.profile} addPassport={this.props.addPassport}/>
                   </Grid.Row>
                 </Grid>
             </div>
