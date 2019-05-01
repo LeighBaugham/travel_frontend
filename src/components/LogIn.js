@@ -11,7 +11,8 @@ import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
   state = {
     name: "",
     password: "",
-    id: null
+    id: null,
+    
   }
 
   handleSubmit = (event) => {
@@ -24,30 +25,43 @@ import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
       body: JSON.stringify(this.state)
     }).then(res => res.json())
     .then(payload => {
-      if (payload.error)
-        this.props.setError(payload)
-      else {
+      if (payload.errors){  
+        this.setError(payload.errors)
+        }      
+        else {
       localStorage.setItem("token", payload.token)
       localStorage.setItem("name", payload.name)
       localStorage.setItem("user_id", payload.user_id)
       this.props.updateUser(payload)
-      this.props.history.push("/profile")}
+      this.props.history.push("/profile")
+    }
     })
   }
         
+  setError = (payload) => {
+    this.setState({errors: payload})
+  }
 
      render = () => {
 
         return(
 
      <div className='login-form'>
+         <style>{`
+            body > div,
+            body > div > div,
+            body > div > div > div.login-form {
+              height: 100%;
+            }
+          `}
+          </style>
      <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
        <Grid.Column style={{ maxWidth: 450 }}>
          <Header as='h2' color='blue' textAlign='center'>
          
             Log-in to your account
          </Header>
-         <p> {this.props.errors ? this.props.errors.error : null} </p>
+         <p> {this.state.errors ? this.state.errors : null} </p>
          <Form size='large' onSubmit={this.handleSubmit}>
            <Segment stacked>
              <Form.Input fluid icon='user' iconPosition='left' className="name" placeholder='Username' onChange={(e) => this.setState({ name: e.target.value })}/>
