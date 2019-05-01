@@ -35,3 +35,8 @@
   background-image: url('./background.png') !important;
   background-size: cover !important;
 }
+
+#welcome {
+  font-family: 'Cute Font', cursive;
+  font-size: 48px;
+}

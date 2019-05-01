@@ -31,15 +31,24 @@ class SignUp extends React.Component {
       body: JSON.stringify(this.state)
     }).then(res => res.json())
    .then(user =>{ 
-     this.props.history.push("/login")
+     
      this.props.updateUser(user)
     })
     event.target.reset()
+    this.props.history.push("/login")
   }
 
   render = () =>
 
   <div className='login-form'>
+           <style>{`
+            body > div,
+            body > div > div,
+            body > div > div > div.login-form {
+              height: 100%;
+            }
+          `}
+          </style>
   <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
       
