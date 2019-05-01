@@ -23,8 +23,7 @@ export default class ProfileContainer extends Component {
           if(res.ok){
             return res.json()
           }
-        }).then(data => this.setState({profile: data}))
-        
+        }).then(data => this.setState({profile: data}))      
         
       }
 
@@ -61,7 +60,7 @@ export default class ProfileContainer extends Component {
                   </Grid.Row>
 
                   <Grid.Row>
-                    <TripsView />
+                    <TripsView trips={this.props.trips}/>
                   </Grid.Row>
                 </Grid>
             </div>

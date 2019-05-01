@@ -14,7 +14,7 @@ class App extends Component {
   state = {
     user: localStorage.getItem("name"),
     trips: [],
-    user_id: localStorage.getItem("user_id")
+    user_id: localStorage.getItem("user_id"), 
   }
 
   updateUser = (payload) => {
@@ -23,34 +23,17 @@ class App extends Component {
                    })
   }
 
-  // saveTrip = (e)=>{
-  //   // console.log(this.state.user_id)
-  //   e.preventDefault()
-  //   // console.log("target", e.target.name.value)
-  //   let newTrip = {
-  //   //  "user_id": user_id,
-  //     "date": e.target.date.value,
-  //     "description": e.target.description.value,
-  //     "location": e.target.location.value,
-  //     "hotel": e.target.hotel.value,
-  //     "schedule": e.target.schedule.value,
-  //     "transportation": e.target.transportation.value
-  //   }
-
-  //   let newTripArray = this.state.trips.slice()
-    
-  //   newTripArray.push(newTrip)
-    
-  //   this.setState({
-  //     trips:newTripArray
-  //   })
-  //   e.target.reset()
-
-  // }
-
   addTrip = (trip) => {
     let newTrips = this.state.trips.concat(trip)
-    this.setState({trips:newTrips})
+    this.setState({trips: newTrips})
+  }
+
+  componentDidMount(){
+    fetch('http://localhost:3000/trips')
+    .then(res => res.json())
+    .then(data => {
+      this.setState({trips: data})
+    })
   }
 
   logout = () => {
@@ -59,9 +42,6 @@ class App extends Component {
   }
 
 
-  setError = (payload) => {
-    this.setState({errors: payload})
-  }
   
   render() {
     return (
@@ -72,7 +52,7 @@ class App extends Component {
       <Route exact path="/signup" render={()=><SignUp user={this.state.user} updateUser={this.updateUser}/> }/>
       <Route exact path="/login" render={()=><LogIn updateUser={this.updateUser} setError={this.setError} errors={this.state.errors} updateUser={this.updateUser}/> }/>
       <Route exact path="/newtrip" render={()=> <NewTrip addTrip={this.addTrip} user_id={this.state.user_id}/>} />
-      <Route exact path="/profile" render={ () => this.state.user === null ? < Homepage /> : <ProfileContainer user={this.state.user} updateUser={this.updateUser} logout={this.logout} />}/>
+      <Route exact path="/profile" render={ () => localStorage.getItem("token") === null ? < Homepage /> : <ProfileContainer user={this.state.user} updateUser={this.updateUser} trips={this.state.trips} logout={this.logout} />}/>
       {/* < Route path="/" render={ () => this.state.user === null ? < LogIn setUser={this.setUser} setError={this.setError} errors={this.state.errors}/> : <ProfileContainer user={this.state.user} setUser={this.setUser} logout={this.logout} login={this.state.loggedIn}/>} />  */}
       </Switch>
       
