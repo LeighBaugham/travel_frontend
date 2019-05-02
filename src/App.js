@@ -14,8 +14,20 @@ class App extends Component {
   state = {
     user: localStorage.getItem("name"),
     trips: [],
+    token: localStorage.getItem("token"),
     user_id: localStorage.getItem("user_id"), 
     passports: []
+  }
+
+  deleteTrip = (id) => {
+
+    let setTrips = this.state.trips.filter(trip => {
+      console.log("trip id",trip.id)
+      console.log("id",id)
+      return !(trip.id === id.id)})
+
+    console.log(setTrips)
+    this.setState({trips:setTrips})
   }
 
   updateUser = (payload) => {
@@ -59,7 +71,7 @@ class App extends Component {
       <Route exact path="/signup" render={()=><SignUp user={this.state.user} updateUser={this.updateUser}/> }/>
       <Route exact path="/login" render={()=><LogIn updateUser={this.updateUser} setError={this.setError} errors={this.state.errors} updateUser={this.updateUser}/> }/>
       <Route exact path="/newtrip" render={()=> <NewTrip addTrip={this.addTrip} user_id={this.state.user_id}/>} />
-      <Route exact path="/profile" render={ () => localStorage.getItem("token") === null ? < Homepage /> : <ProfileContainer addPassport={this.addPassport} user={this.state.user} updateUser={this.updateUser} trips={this.state.trips} logout={this.logout} />}/>
+      <Route exact path="/profile" render={ () => localStorage.getItem("token") === null ? < Homepage /> : <ProfileContainer addPassport={this.addPassport} deleteTrip= {this.deleteTrip} user={this.state.user} token={this.state.token} updateUser={this.updateUser} trips={this.state.trips} logout={this.logout} />}/>
       {/* < Route path="/" render={ () => this.state.user === null ? < LogIn setUser={this.setUser} setError={this.setError} errors={this.state.errors}/> : <ProfileContainer user={this.state.user} setUser={this.setUser} logout={this.logout} login={this.state.loggedIn}/>} />  */}
       </Switch>
       

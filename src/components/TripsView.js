@@ -5,6 +5,22 @@ import { Card, Grid } from 'semantic-ui-react';
 
 class TripsView extends Component {
 
+    deletingTrip = (id) => {
+      // console.log(id)
+      fetch(`http://localhost:3000/trips/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Token": localStorage.getItem("token")
+        },
+        body: JSON.stringify({
+          id: id
+        })
+      }).then(res => res.json())
+      .then(trip => this.props.deleteTrip(trip))
+    }
+
+      
     joinPassport = (id) => {
         fetch("http://localhost:3000/passports", {
           method: "POST",
@@ -26,7 +42,7 @@ class TripsView extends Component {
               <Grid padded>
                 <Grid.Row columns={1}>
                 <Card.Group itemsPerRow={4}>
-                  {this.props.trips.map(trip => <TripCard trip={trip} user={this.props.user} joinPassport={this.joinPassport}/>)}
+                  {this.props.trips.map(trip => <TripCard trip={trip} user={this.props.user} deletingTrip = {this.deletingTrip} joinPassport={this.joinPassport}/>)}
                   </Card.Group>
                  </Grid.Row>
               </Grid>
