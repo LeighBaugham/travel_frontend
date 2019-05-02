@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import LoggedInHeader from './LoggedInHeader'
 import { Grid, Button } from 'semantic-ui-react'
 import TripsView from './TripsView'
+import MyTrips from './MyTrips'
+import MyPassports from './MyPassports'
+
 
 export default class ProfileContainer extends Component {
 
@@ -60,7 +63,12 @@ export default class ProfileContainer extends Component {
                   </Grid.Row>
 
                   <Grid.Row>
-                    <TripsView trips={this.props.trips} deleteTrip= {this.props.deleteTrip} token={this.props.token} user={this.state.profile} addPassport={this.props.addPassport}/>
+                  <Grid.Column width={8}>
+                    <MyTrips trips={this.props.trips} deleteTrip= {this.props.deleteTrip} token={this.props.token} user={this.state.profile} addPassport={this.props.addPassport}/>
+                  </Grid.Column>
+                  <Grid.Column width={8}>
+                    <MyPassports trips={this.props.trips} deleteTrip= {this.props.deleteTrip} token={this.props.token} user={this.state.profile} addPassport={this.props.addPassport}/>
+                  </Grid.Column>
                   </Grid.Row>
                 </Grid>
             </div>
