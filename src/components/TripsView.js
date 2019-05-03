@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TripCard from './TripCard'
 import { Card, Grid } from 'semantic-ui-react';
+import LoggedInHeader from './LoggedInHeader'
 
 
 class TripsView extends Component {
@@ -21,28 +22,29 @@ class TripsView extends Component {
     }
 
       
-    joinPassport = (id) => {
-        fetch("http://localhost:3000/passports", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Token": localStorage.getItem("token")
-          },
-          body: JSON.stringify({
-            user_id: this.props.user.id,
-            trip_id: id,
-          })
-        }).then(res => res.json())
-        .then(passport => this.props.addPassport(passport))
-      }
+    // joinPassport = (id) => {
+    //     fetch("http://localhost:3000/passports", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         "Access-Token": localStorage.getItem("token")
+    //       },
+    //       body: JSON.stringify({
+    //         user_id: this.props.user.id,
+    //         trip_id: id,
+    //       })
+    //     }).then(res => res.json())
+    //     .then(passport => this.props.addPassport(passport))
+    //   }
 
     render () {
         return(
             <div>
+              < LoggedInHeader />
               <Grid padded>
                 <Grid.Row columns={1}>
                 <Card.Group itemsPerRow={4}>
-                  {this.props.trips.map(trip => <TripCard trip={trip} user={this.props.user} deletingTrip = {this.deletingTrip} joinPassport={this.joinPassport}/>)}
+                  {this.props.trips.map(trip => <TripCard trip={trip} user={this.props.user} userid = {this.props.userid} deletingTrip = {this.deletingTrip} joinPassport={this.props.joinPassport}/>)}
                   </Card.Group>
                  </Grid.Row>
               </Grid>

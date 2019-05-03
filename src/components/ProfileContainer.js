@@ -58,16 +58,17 @@ export default class ProfileContainer extends Component {
                   </Grid.Column>
                   <Grid.Column width={3}>                  
                    <p> <Button size='large' color='violet'icon='plus' href='/newtrip' content='Trip' /></p>
-                    
+                   <p> <Button size='large' color='violet'icon='plus' href='/tripsview' content='All Trips' /></p>
+
                   </Grid.Column>
                   </Grid.Row>
 
                   <Grid.Row>
                   <Grid.Column width={8}>
-                    <MyTrips trips={this.props.trips} deleteTrip= {this.props.deleteTrip} token={this.props.token} user={this.state.profile} addPassport={this.props.addPassport}/>
+                    <MyTrips trips={this.props.trips} userid={this.props.userid} deleteTrip= {this.props.deleteTrip} token={this.props.token} user={this.state.profile} joinPassport={this.props.joinPassport} addPassport={this.props.addPassport}/>
                   </Grid.Column>
                   <Grid.Column width={8}>
-                    <MyPassports trips={this.props.trips} deleteTrip= {this.props.deleteTrip} token={this.props.token} user={this.state.profile} addPassport={this.props.addPassport}/>
+                    <MyPassports trips={this.props.trips} userid={this.props.userid} deleteTrip= {this.props.deleteTrip} token={this.props.token} user={this.state.profile} joinPassport={this.props.joinPassport} addPassport={this.props.addPassport}/>
                   </Grid.Column>
                   </Grid.Row>
                 </Grid>
