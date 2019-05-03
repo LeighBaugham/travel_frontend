@@ -6,6 +6,7 @@ import ProfileContainer from './components/ProfileContainer';
 // import TravelHeader from './components/TravelHeader'
 import Homepage from './Homepage.js'
 import NewTrip from './components/NewTrip'
+import TripsView from './components/TripsView'
 
 
 class App extends Component {
@@ -60,6 +61,21 @@ class App extends Component {
     localStorage.clear()
   }
 
+  joinPassport = (id) => {
+    fetch("http://localhost:3000/passports", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Token": localStorage.getItem("token")
+      },
+      body: JSON.stringify({
+        user_id: this.state.user_id,
+        trip_id: id,
+      })
+    }).then(res => res.json())
+    .then(passport => this.addPassport(passport))
+  }
+
 
   
   render() {
@@ -71,7 +87,8 @@ class App extends Component {
       <Route exact path="/signup" render={()=><SignUp user={this.state.user} updateUser={this.updateUser}/> }/>
       <Route exact path="/login" render={()=><LogIn updateUser={this.updateUser} setError={this.setError} errors={this.state.errors} updateUser={this.updateUser}/> }/>
       <Route exact path="/newtrip" render={()=> <NewTrip addTrip={this.addTrip} user_id={this.state.user_id}/>} />
-      <Route exact path="/profile" render={ () => localStorage.getItem("token") === null ? < Homepage /> : <ProfileContainer addPassport={this.addPassport} deleteTrip= {this.deleteTrip} user={this.state.user} token={this.state.token} updateUser={this.updateUser} trips={this.state.trips} logout={this.logout} />}/>
+      <Route exact path="/tripsview" render={()=> <TripsView addPassport={this.addPassport} joinPassport={this.joinPassport} deleteTrip= {this.deleteTrip} user={this.state.user} userid={this.state.user_id} token={this.state.token} updateUser={this.updateUser} trips={this.state.trips} logout={this.logout}/>} />
+      <Route exact path="/profile" render={ () => localStorage.getItem("token") === null ? < Homepage /> : <ProfileContainer joinPassport={this.joinPassport} addPassport={this.addPassport} userid={this.state.user_id} deleteTrip= {this.deleteTrip} user={this.state.user} token={this.state.token} updateUser={this.updateUser} trips={this.state.trips} logout={this.logout} />}/>
       {/* < Route path="/" render={ () => this.state.user === null ? < LogIn setUser={this.setUser} setError={this.setError} errors={this.state.errors}/> : <ProfileContainer user={this.state.user} setUser={this.setUser} logout={this.logout} login={this.state.loggedIn}/>} />  */}
       </Switch>
       

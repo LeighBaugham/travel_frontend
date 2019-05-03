@@ -14,7 +14,7 @@ class LoggedInHeader extends Component {
                <Image  /> 
                 <Header.Content>
                     <Image  size='medium'/>
-                    {/* <Header.Subheader> Welcome {this.props.user}</Header.Subheader> */}
+                    <a href="/profile" style={{ color: '#f00' }} className="item" >Profile </a> 
                 </Header.Content>
             </Header>
 

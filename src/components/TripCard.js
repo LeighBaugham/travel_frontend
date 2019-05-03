@@ -8,7 +8,7 @@ class TripCard extends Component {
     
 
     displayButton = () => {
-        if (this.props.user.id === this.props.trip.user_id){
+        if (this.props.userid == this.props.trip.user_id){
             return  <DeleteButton deletingTrip={this.props.deletingTrip} trip={this.props.trip}/>
         }
         else {
