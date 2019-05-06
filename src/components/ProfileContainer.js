@@ -28,7 +28,7 @@ export default class ProfileContainer extends Component {
           }
         }).then(data => this.setState({profile: data}))
         this.props.fetch()      
-        
+      
       }
 
     render() {

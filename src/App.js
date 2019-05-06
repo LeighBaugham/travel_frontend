@@ -59,7 +59,7 @@ class App extends Component {
     .then(data => {
       this.setState({trips: data})
     })
-    //this.fetch()
+    // this.fetch()
   }
 
   fetch = () => {
