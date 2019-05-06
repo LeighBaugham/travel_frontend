@@ -45,29 +45,6 @@ class TripCard extends Component {
                         </div>
                     </Card.Content>
                 </Card>
-                    {/* <Card>
-                    <Card.Content>
-                        <Card.Meta floated='right'> {this.props.trip.date} </Card.Meta>
-                        <Card.Header>{this.props.trip.location}</Card.Header>
-                        {/* <Card.Meta>{this.props.user.name}</Card.Meta> */}
-                       
-    
-                        {/* <Card.Meta>{this.props.trip.description}</Card.Meta>
-                        <Card.Meta>{this.props.trip.hotel}</Card.Meta>
-                        <Card.Meta>{this.props.trip.transport}</Card.Meta>
-                        <Card.Description>
-                        {this.props.trip.schedule}                      
-                        </Card.Description>
-                        
-                    </Card.Content>
-                    <Card.Content>
-                        <div>
-                            {this.displayButton()}
-                        </div>
-                    </Card.Content>
-                    </Card> */} 
-                
-
             </div>
         )}
 }
