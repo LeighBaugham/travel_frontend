@@ -27,12 +27,15 @@ class TripCard extends Component {
                             <Card.Header>{this.props.trip.location}</Card.Header>
                         </Card.Content>
                     }>
-                    <Modal.Header>{this.props.trip.description}</Modal.Header>
+                    <Modal.Header>{this.props.trip.location}</Modal.Header>
                     <Modal.Content>
                         <Modal.Description>
-                          <Header>{this.props.trip.hotel}</Header>
+                          <Header>{this.props.trip.date}</Header>
                             <p>{this.props.trip.transport}</p>
-                            <p>{this.props.trip.schedule} </p>
+                            <p>{this.props.trip.hotel}</p>
+                            <p>{this.props.trip.schedule}</p>
+                            <p>{this.props.trip.description}</p>
+
                         </Modal.Description>
                     </Modal.Content>
                 </Modal>
