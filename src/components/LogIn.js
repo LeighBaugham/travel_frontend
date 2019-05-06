@@ -33,10 +33,13 @@ import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
       localStorage.setItem("name", payload.name)
       localStorage.setItem("user_id", payload.user_id)
       this.props.updateUser(payload)
-      this.props.history.push("/profile")
+          
+        this.props.history.push("/profile") 
     }
     })
   }
+
+  
         
   setError = (payload) => {
     this.setState({errors: payload})

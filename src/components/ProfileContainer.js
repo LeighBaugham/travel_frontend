@@ -26,7 +26,8 @@ export default class ProfileContainer extends Component {
           if(res.ok){
             return res.json()
           }
-        }).then(data => this.setState({profile: data}))      
+        }).then(data => this.setState({profile: data}))
+        this.props.fetch()      
         
       }
 
@@ -65,10 +66,10 @@ export default class ProfileContainer extends Component {
 
                   <Grid.Row>
                   <Grid.Column width={8}>
-                    <MyTrips trips={this.props.trips} userid={this.props.userid} deletingTrip= {this.props.deletingTrip} token={this.props.token} user={this.state.profile} joinPassport={this.props.joinPassport} addPassport={this.props.addPassport}/>
+                    <MyTrips trips={this.props.trips} mytrips={this.props.mytrips} userid={this.props.userid} deletingTrip= {this.props.deletingTrip} token={this.props.token} user={this.state.profile} joinPassport={this.props.joinPassport} addPassport={this.props.addPassport}/>
                   </Grid.Column>
                   <Grid.Column width={8}>
-                    <MyPassports trips={this.props.trips} userid={this.props.userid} deletingTrip= {this.props.deletingTrip} token={this.props.token} user={this.state.profile} joinPassport={this.props.joinPassport} addPassport={this.props.addPassport}/>
+                    <MyPassports trips={this.props.trips}  userid={this.props.userid} deletingTrip= {this.props.deletingTrip} token={this.props.token} user={this.state.profile} joinPassport={this.props.joinPassport} addPassport={this.props.addPassport}/>
                   </Grid.Column>
                   </Grid.Row>
                 </Grid>
