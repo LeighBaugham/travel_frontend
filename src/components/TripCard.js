@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Card } from 'semantic-ui-react'
+import { Card , Header, Modal, CardContent } from 'semantic-ui-react'
 import DeleteButton from './DeleteButton';
 import JoinButton from './JoinButton'
 
@@ -20,15 +20,36 @@ class TripCard extends Component {
     render () {
         return(
             <div>
-               
-                    <Card>
+                <Card>
+                 <Modal trigger={
+                        <Card.Content>
+                            <Card.Meta floated='right'> {this.props.trip.date} </Card.Meta>
+                            <Card.Header>{this.props.trip.location}</Card.Header>
+                        </Card.Content>
+                    }>
+                    <Modal.Header>{this.props.trip.description}</Modal.Header>
+                    <Modal.Content>
+                        <Modal.Description>
+                          <Header>{this.props.trip.hotel}</Header>
+                            <p>{this.props.trip.transport}</p>
+                            <p>{this.props.trip.schedule} </p>
+                        </Modal.Description>
+                    </Modal.Content>
+                </Modal>
+                    <Card.Content>
+                        <div>
+                            {this.displayButton()}
+                        </div>
+                    </Card.Content>
+                </Card>
+                    {/* <Card>
                     <Card.Content>
                         <Card.Meta floated='right'> {this.props.trip.date} </Card.Meta>
                         <Card.Header>{this.props.trip.location}</Card.Header>
                         {/* <Card.Meta>{this.props.user.name}</Card.Meta> */}
                        
     
-                        <Card.Meta>{this.props.trip.description}</Card.Meta>
+                        {/* <Card.Meta>{this.props.trip.description}</Card.Meta>
                         <Card.Meta>{this.props.trip.hotel}</Card.Meta>
                         <Card.Meta>{this.props.trip.transport}</Card.Meta>
                         <Card.Description>
@@ -38,10 +59,10 @@ class TripCard extends Component {
                     </Card.Content>
                     <Card.Content>
                         <div>
-                        {this.displayButton()}
-                    </div>
+                            {this.displayButton()}
+                        </div>
                     </Card.Content>
-                    </Card>
+                    </Card> */} 
                 
 
             </div>
