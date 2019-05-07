@@ -19,12 +19,13 @@ class TripCard extends Component {
 
     render () {
         return(
-            <div>
-                <Card>
+            <div className='card'>
+                <Card raised color='blue'>
                  <Modal trigger={
                         <Card.Content>
                             <Card.Meta floated='right'> {this.props.trip.date} </Card.Meta>
                             <Card.Header>{this.props.trip.location}</Card.Header>
+
                         </Card.Content>
                     }>
                     <Modal.Header>{this.props.trip.location}</Modal.Header>

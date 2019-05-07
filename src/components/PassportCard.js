@@ -8,8 +8,8 @@ class PassportCard extends Component {
 
 render () {
     return(
-        <div>
-            <Card>
+        <div className='card' >
+            <Card color='blue'>
              <Modal trigger={
                     <Card.Content>
                         <Card.Meta floated='right'>{this.props.trip.date} </Card.Meta>
@@ -20,6 +20,8 @@ render () {
                 <Modal.Content>
                     <Modal.Description>
                       <Header>When:  {this.props.trip.date}</Header>
+                      <p>  Created by: {this.props.user.name}</p>
+
                         <p>How: {this.props.trip.transport}</p>
                         <p>Where:  {this.props.trip.hotel}</p>
                         <p>{this.props.trip.schedule}</p>
@@ -28,11 +30,11 @@ render () {
                     </Modal.Description>
                 </Modal.Content>
             </Modal>
-                <Card.Content>
+                {/* <Card.Content>
                 {/* <Button  onClick={() => this.props.deletingPassport(this.props.trip.id)} basic color='red'>
                 Delete
                 </Button>  */}
-                </Card.Content>
+                {/* </Card.Content>  */}
             </Card>
         </div>
     )}

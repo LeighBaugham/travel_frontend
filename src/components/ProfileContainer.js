@@ -59,8 +59,8 @@ export default class ProfileContainer extends Component {
                       </Grid.Row> */}
                   </Grid.Column>
                   <Grid.Column width={3}>                  
-                   <p> <Button size='large' color='violet'icon='plus' href='/newtrip' content='Trip' /></p>
-                   <p> <Button size='large' color='violet' href='/tripsview' content='All Trips' /></p>
+                   <p> <Button size='large' color='green'icon='plus' href='/newtrip' content='Trip' /></p>
+                   <p> <Button size='large' color='blue' href='/tripsview' content='All Trips' /></p>
 
                   </Grid.Column>
                   </Grid.Row>
