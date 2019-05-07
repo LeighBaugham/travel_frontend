@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Form, Container } from 'semantic-ui-react';
+import LoggedInHeader from './LoggedInHeader'
 
 class NewTrip extends React.Component {
   state = {
@@ -26,18 +28,32 @@ class NewTrip extends React.Component {
     this.props.history.push("/profile")
   }
 
-  render = () =>
-    <form class="ui form" onSubmit={this.saveTrip}>
-      <div class="field">
+  render () {
+    return (
+
+   
+  <div>
+   < LoggedInHeader logout={this.props.logout}/>
+    <Container text style={{ marginTop: '7em' }}>
+    <Form  onSubmit={this.saveTrip}>
+      <Form.Group widths='equal'>
+      <Form.Field>
         <label>Date</label>
         <input type="date" name="date" placeholder="Date"
           onChange={(e) => this.setState({ date: e.target.value })} />
-      </div>
-      <div class="field">
+          </Form.Field>
+          <Form.Field>
+          <label>Location</label>
+        <input type="text" name="location" placeholder="location"
+          onChange={(e) => this.setState({ location: e.target.value })} />
+          </Form.Field>
+      </Form.Group>
+      <Form.Field >
         <label>Description</label>
-        <input type="text" name="description" placeholder="Description"
+        <input name="description" placeholder="Tell us more about your trip..."
           onChange={(e) => this.setState({ description: e.target.value })} />
-      </div>
+      </Form.Field>
+      <Form.Group widths='equal'>
       <div class="field">
         <label>Location</label>
         <input type="text" name="location" placeholder="location"
@@ -58,9 +74,15 @@ class NewTrip extends React.Component {
         <input type="text" name="transportation" placeholder="Transportation"
           onChange={(e) => this.setState({ transportation: e.target.value })} />
       </div>
+      </Form.Group>
       <button class="ui button" type="submit">Submit</button>
 
-    </form>
+    </Form>
+    </Container>
+    </div>
+    
+     )
+    }
 }
 
 const NewTripWithRouter = withRouter(NewTrip)
