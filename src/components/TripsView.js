@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TripCard from './TripCard'
-import { Card, Grid } from 'semantic-ui-react';
+import { Card, Grid, Container } from 'semantic-ui-react';
 import LoggedInHeader from './LoggedInHeader'
 
 
@@ -40,14 +40,17 @@ class TripsView extends Component {
     render () {
         return(
             <div>
-              < LoggedInHeader />
-              <Grid padded>
-                <Grid.Row columns={1}>
-                <Card.Group itemsPerRow={4}>
+               < LoggedInHeader logout={this.props.logout}/>
+
+              <Container text style={{ marginTop: '7em' }}>
+              <Grid >
+                <Grid.Row>
+                <Card.Group >
                   {this.props.trips.map(trip => <TripCard trip={trip} user={this.props.user} userid = {this.props.userid} deletingTrip = {this.props.deletingTrip} joinPassport={this.props.joinPassport}/>)}
                   </Card.Group>
                  </Grid.Row>
               </Grid>
+              </Container>
             </div>
         )}
 }

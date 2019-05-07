@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import LoggedInHeader from './LoggedInHeader'
-import { Grid, Button } from 'semantic-ui-react'
+import { Grid, Button, Container } from 'semantic-ui-react'
 import TripsView from './TripsView'
 import MyTrips from './MyTrips'
 import MyPassports from './MyPassports'
@@ -34,8 +34,9 @@ export default class ProfileContainer extends Component {
     render() {
         return (
             <div>
+
                 < LoggedInHeader logout={this.props.logout}/>
-                <Grid celled='vertically'>
+                <Grid celled='vertically'text style={{ marginTop: '7em' }}>
                   <Grid.Row>
                   <Grid.Column width={3}>
                   <img className="avatar" id="img" src={this.state.profile.image_url} alt="YOU"/> 
@@ -59,11 +60,12 @@ export default class ProfileContainer extends Component {
                   </Grid.Column>
                   <Grid.Column width={3}>                  
                    <p> <Button size='large' color='violet'icon='plus' href='/newtrip' content='Trip' /></p>
-                   <p> <Button size='large' color='violet'icon='plus' href='/tripsview' content='All Trips' /></p>
+                   <p> <Button size='large' color='violet' href='/tripsview' content='All Trips' /></p>
 
                   </Grid.Column>
                   </Grid.Row>
-
+                  </Grid>
+                  <Grid>
                   <Grid.Row>
                   <Grid.Column width={8}>
                     <MyTrips trips={this.props.trips} mytrips={this.props.mytrips} userid={this.props.userid} deletingTrip= {this.props.deletingTrip} token={this.props.token} user={this.state.profile} joinPassport={this.props.joinPassport} addPassport={this.props.addPassport}/>
@@ -73,6 +75,7 @@ export default class ProfileContainer extends Component {
                   </Grid.Column>
                   </Grid.Row>
                 </Grid>
+               
             </div>
         )
     }
