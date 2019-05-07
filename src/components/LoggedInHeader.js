@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Header, Image, Segment, Container, Menu } from 'semantic-ui-react'
+import Logo from "../images/logo.png"
 
 
 class LoggedInHeader extends Component {
@@ -8,12 +9,13 @@ class LoggedInHeader extends Component {
 
     render () {
         return(
-        <div>
+        <div >
+            <Header>
              <Menu fixed='top' inverted>
-      <Container>
+      <Container >
         <Menu.Item as='a' header>
-          {/* <Image size='mini' src='/logo.png' style={{ marginRight: '1.5em' }} /> */}
-        Friendly Tripping
+          <Image src={Logo} size='small'  />
+        {/* Friendly Tripping */}
         </Menu.Item>
         <Menu.Item as='a'>
         <a href="/profile" >Profile </a> 
@@ -24,6 +26,7 @@ class LoggedInHeader extends Component {
             </Menu.Item>
         </Container>
     </Menu>
+    </Header>
 
             {/* <Segment clearing>
             <Header as='h3' floated='left'>

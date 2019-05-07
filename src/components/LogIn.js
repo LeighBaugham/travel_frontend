@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message, Segment, Image } from 'semantic-ui-react'
+import Logo from "../images/logo.png"
 
 
 
@@ -64,7 +65,9 @@ import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
          
              
          </Header>
+         <Image src={Logo} size='large'  verticalAlign='middle'/>
          <p> {this.state.errors ? this.state.errors : null} </p>
+         
          <Form size='large' onSubmit={this.handleSubmit}>
            <Segment stacked>
              <Form.Input fluid icon='user' iconPosition='left' className="name" placeholder='Username' onChange={(e) => this.setState({ name: e.target.value })}/>

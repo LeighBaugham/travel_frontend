@@ -9,7 +9,7 @@ class DeleteButton extends Component {
         return(
             <div>
             
-            <Button  onClick={() => this.props.deletingTrip(this.props.trip.id)} basic color='red'>
+            <Button  size='small' onClick={() => this.props.deletingTrip(this.props.trip.id)} basic color='red'>
                 Delete
             </Button>          
                         

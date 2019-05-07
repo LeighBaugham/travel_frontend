@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Segment, Image } from 'semantic-ui-react'
+import Logo from "../images/logo.png"
 
 
 
@@ -51,8 +52,9 @@ class SignUp extends React.Component {
           </style>
   <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
-      
-      <Header as='h2' color='blue' textAlign='center'>
+    <Image src={Logo} size='large'  verticalAlign='middle'/>
+
+      <Header as='h3' color='blue' textAlign='center'>
         Create New Account
       </Header>
       {/* <p><p> {this.props.errors ? this.props.errors.error : null} </p></p> */}
