@@ -28,14 +28,14 @@ class TripCard extends Component {
 
                         </Card.Content>
                     }>
-                    <Modal.Header>{this.props.trip.location}</Modal.Header>
+                    <Modal.Header>Where:  {this.props.trip.location}</Modal.Header>
                     <Modal.Content>
                         <Modal.Description>
-                          <Header>{this.props.trip.date}</Header>
-                            <p>{this.props.trip.transport}</p>
-                            <p>{this.props.trip.hotel}</p>
-                            <p>{this.props.trip.schedule}</p>
-                            <p>{this.props.trip.description}</p>
+                          <Header>When:  {this.props.trip.date}</Header>
+                            <p>How:  {this.props.trip.transportation}</p>
+                            <p>Sleep:  {this.props.trip.hotel}</p>
+                            <p>Plan:  {this.props.trip.schedule}</p>
+                            <p>Why:  {this.props.trip.description}</p>
 
                         </Modal.Description>
                     </Modal.Content>

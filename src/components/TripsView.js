@@ -39,18 +39,19 @@ class TripsView extends Component {
 
     render () {
         return(
-            <div>
+            <div >
                < LoggedInHeader logout={this.props.logout}/>
 
-              <Container text style={{ marginTop: '7em' }}>
-              <Grid >
-                <Grid.Row>
-                <Card.Group >
-                  {this.props.trips.map(trip => <TripCard trip={trip} user={this.props.user} userid = {this.props.userid} deletingTrip = {this.props.deletingTrip} joinPassport={this.props.joinPassport}/>)}
-                  </Card.Group>
-                 </Grid.Row>
-              </Grid>
-              </Container>
+                    <Container text style={{ marginTop: '7em' }}>
+                    <Grid  >
+                      <input onChange={this.props.handleChange} name="search" className="prompt" type="text" placeholder="Search Trips..."/>
+                      <Grid.Row>
+                      <Card.Group >
+                        {this.props.trips.map(trip => <TripCard trip={trip} user={this.props.user} userid = {this.props.userid} deletingTrip = {this.props.deletingTrip} joinPassport={this.props.joinPassport}/>)}
+                        </Card.Group>
+                      </Grid.Row>
+                    </Grid>
+                    </Container>
             </div>
         )}
 }

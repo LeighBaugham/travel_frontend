@@ -35,7 +35,7 @@ class MyTrips extends Component {
             <div>
                  <Grid padded>
                 <Grid.Row columns={1}>
-                <Card.Group itemsPerRow={4}>
+                <Card.Group >
                 
                {this.props.mytrips.map(trip => <TripCard trip={trip} userid={this.props.userid} user={this.props.user} deletingTrip={this.props.deletingTrip} joinPassport={this.props.joinPassport}/>)}
                </Card.Group>
