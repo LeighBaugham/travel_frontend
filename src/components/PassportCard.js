@@ -9,22 +9,22 @@ class PassportCard extends Component {
 render () {
     return(
         <div className='card' >
-            <Card color='blue'>
+            <Card raised color='blue'>
              <Modal trigger={
                     <Card.Content>
                         <Card.Meta floated='right'>{this.props.trip.date} </Card.Meta>
                         <Card.Header>{this.props.trip.location}</Card.Header>
                     </Card.Content>
                 }>
-                <Modal.Header>{this.props.trip.location}</Modal.Header>
+                <Modal.Header>Where:  {this.props.trip.location}</Modal.Header>
                 <Modal.Content>
                     <Modal.Description>
                       <Header>When:  {this.props.trip.date}</Header>
-                      <p>  Created by: {this.props.user.name}</p>
+                      {/* <p>  Created by: {this.props.user.name}</p> */}
 
-                        <p>How: {this.props.trip.transport}</p>
-                        <p>Where:  {this.props.trip.hotel}</p>
-                        <p>{this.props.trip.schedule}</p>
+                        <p>How: {this.props.trip.transportation}</p>
+                        <p>Sleep:  {this.props.trip.hotel}</p>
+                        <p>Plans:  {this.props.trip.schedule}</p>
                         <p>Why: {this.props.trip.description}</p>
 
                     </Modal.Description>

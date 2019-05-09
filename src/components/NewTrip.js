@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Form, Container } from 'semantic-ui-react';
+import { Form, Container, Button } from 'semantic-ui-react';
 import LoggedInHeader from './LoggedInHeader'
 
 class NewTrip extends React.Component {
@@ -54,11 +54,7 @@ class NewTrip extends React.Component {
           onChange={(e) => this.setState({ description: e.target.value })} />
       </Form.Field>
       <Form.Group widths='equal'>
-      <div class="field">
-        <label>Location</label>
-        <input type="text" name="location" placeholder="location"
-          onChange={(e) => this.setState({ location: e.target.value })} />
-      </div>
+     
       <div class="field">
         <label>Hotel</label>
         <input type="text" name="hotel" placeholder="Hotel"
@@ -75,7 +71,7 @@ class NewTrip extends React.Component {
           onChange={(e) => this.setState({ transportation: e.target.value })} />
       </div>
       </Form.Group>
-      <button class="ui button" type="submit">Submit</button>
+      <Button  className="ui button" type="submit">Submit</Button>
 
     </Form>
     </Container>

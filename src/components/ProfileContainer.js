@@ -36,12 +36,13 @@ export default class ProfileContainer extends Component {
             <div>
 
                 < LoggedInHeader logout={this.props.logout}/>
+                <Container>
                 <Grid celled='vertically'text style={{ marginTop: '7em' }}>
                   <Grid.Row>
-                  <Grid.Column width={3}>
+                  <Grid.Column width={4}align='center'>
                   <img className="avatar" id="img" src={this.state.profile.image_url} alt="YOU"/> 
                   </Grid.Column>
-                  <Grid.Column width={10}>
+                  <Grid.Column width={8} >
                       <Grid.Row>
                         {this.state.profile.name}
                       </Grid.Row>
@@ -58,14 +59,15 @@ export default class ProfileContainer extends Component {
                         <Button content='Delete User' />
                       </Grid.Row> */}
                   </Grid.Column>
-                  <Grid.Column width={3}>                  
+                  <Grid.Column width={4} align='center'>                  
                    <p> <Button size='large' color='green'icon='plus' href='/newtrip' content='Trip' /></p>
                    <p> <Button size='large' color='blue' href='/tripsview' content='All Trips' /></p>
 
                   </Grid.Column>
                   </Grid.Row>
                   </Grid>
-                  <Grid>
+                  </Container>
+                  <Grid padded >
                   <Grid.Row>
                   <Grid.Column width={8}>
                     <MyTrips trips={this.props.trips} mytrips={this.props.mytrips} userid={this.props.userid} deletingTrip= {this.props.deletingTrip} token={this.props.token} user={this.state.profile} joinPassport={this.props.joinPassport} addPassport={this.props.addPassport}/>

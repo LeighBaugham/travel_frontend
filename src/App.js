@@ -75,6 +75,24 @@ class App extends Component {
 
 
   }
+  handleChange = (e)=>{
+
+    console.log("search was fired", e.target.value)
+    //filter through our tools array
+    //condition that the search term matches the name of the tool
+    let filteredArray = this.state.trips.filter((trip)=> {
+      
+      if(trip.location.toLowerCase().includes(e.target.value))
+        return true
+    })
+
+
+    console.log("Search Results", filteredArray)
+
+    this.setState({
+      trips: filteredArray
+    })
+  }
 
 
   // Promise(this.fetch()) =>  {
@@ -127,7 +145,7 @@ class App extends Component {
       <Route exact path="/signup" render={()=><SignUp user={this.state.user} updateUser={this.updateUser}/> }/>
       <Route exact path="/login" render={()=><LogIn finishLogin={this.finishLogin} mytrips={this.state.mytrips} fetch={this.fetch} updateUser={this.updateUser} setError={this.setError} errors={this.state.errors} updateUser={this.updateUser}/> }/>
       <Route exact path="/newtrip" render={()=> <NewTrip logout={this.logout} addTrip={this.addTrip} user_id={this.state.user_id}/>} />
-      <Route exact path="/tripsview" render={()=> <TripsView addPassport={this.addPassport} joinPassport={this.joinPassport} deletingTrip= {this.deletingTrip} user={this.state.user} userid={this.state.user_id} token={this.state.token} updateUser={this.updateUser} trips={this.state.trips} logout={this.logout}/>} />
+      <Route exact path="/tripsview" render={()=> <TripsView handleChange={this.handleChange} addPassport={this.addPassport} joinPassport={this.joinPassport} deletingTrip= {this.deletingTrip} user={this.state.user} userid={this.state.user_id} token={this.state.token} updateUser={this.updateUser} trips={this.state.trips} logout={this.logout}/>} />
       <Route exact path="/profile" render={ () => localStorage.getItem("token") === null ? < Homepage /> : <ProfileContainer fetch={this.fetch} joinPassport={this.joinPassport} mytrips= {this.state.mytrips} addPassport={this.addPassport} userid={this.state.user_id} deletingTrip= {this.deletingTrip} user={this.state.user} token={this.state.token} updateUser={this.updateUser} trips={this.state.trips} logout={this.logout} />}/>
       {/* < Route path="/" render={ () => this.state.user === null ? < LogIn setUser={this.setUser} setError={this.setError} errors={this.state.errors}/> : <ProfileContainer user={this.state.user} setUser={this.setUser} logout={this.logout} login={this.state.loggedIn}/>} />  */}
       </Switch>

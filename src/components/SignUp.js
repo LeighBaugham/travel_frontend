@@ -54,9 +54,9 @@ class SignUp extends React.Component {
     <Grid.Column style={{ maxWidth: 450 }}>
     <Image src={Logo} size='large'  verticalAlign='middle'/>
 
-      <Header as='h3' color='blue' textAlign='center'>
+      {/* <Header as='h3' color='blue' textAlign='center'>
         Create New Account
-      </Header>
+      </Header> */}
       {/* <p><p> {this.props.errors ? this.props.errors.error : null} </p></p> */}
       <Form size='large' onSubmit={this.saveUser}>
         <Segment stacked>
@@ -76,7 +76,7 @@ class SignUp extends React.Component {
           <Form.Input fluid icon='location arrow' iconPosition='left' className="location" placeholder='Location' onChange={(e) => this.setState({ location: e.target.value })}/>
 
           <Button color='blue' fluid size='large'>
-            Submit
+            Sign Up
           </Button>
         </Segment>
       </Form>
